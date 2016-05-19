@@ -1,0 +1,31 @@
+<h2>Welcome to CUSTOMERS</h2>
+
+	<h2>Add New Customer</h2>
+	<form>
+		<div>
+			<label for="">Customer Name: 
+			<input type="text" ng-model = "newCustomer.customer_name" id="">
+		<input type="submit" value="Add Customer" ng-click = "addCustomer()">
+		</label>
+		</div>
+	</form>
+   <hr>
+   <input type="text" ng-model="filter_name" placeholder="filter">
+  {{filter_name}}
+   <table>
+   		<thead>
+   			<tr>
+   				<th>Customer Name</th>
+   				<th>Date</th>
+   				<th>Actions</th>
+   			</tr>
+   		</thead>
+   		<tbody>
+   			<tr ng-repeat = "customer in customers | filter: filter_name">
+   				<td>{{customer.customer_name}}</td>
+   				<td>{{customer.created_at | date: 'medium'}}</td>
+   				<td><button ng-click = "removeCustomer(customer)">Delete customer</button></td>
+   			</tr>
+   		</tbody>
+   	</table>
+   

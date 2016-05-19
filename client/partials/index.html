@@ -1,0 +1,36 @@
+
+<h2>WARES AND GOODS</h2>
+<!-- <div class="wrapper"> -->
+<!-- {{time}} -->
+   <div class="row">
+      <div class="three columns">
+         <input type="text" ng-model="filter_name" placeholder="filter">
+        {{filter_name}}
+      </div>
+      <div class="nine columns">
+               <div>
+                  <div class="productbox" ng-repeat = "product in products | filter: filter_name">
+                     <img src="{{product.image}}" alt="{{product.description}}">
+                     <p>{{product.product_name}}</p>
+                     <p>({{product.quantity}} left)</p>
+                  </div>
+                  <p><a href="#/products">show more...</a></p>
+               </div>
+               <div>
+                  <div class="orderbox" >
+                     <h5>Recent Orders</h5>
+                     <p ng-repeat = "order in orders">{{order.customer_name}} purchased {{order.quantity}} {{order.product_name}}s...({{ time | amDifference : order.created_at : 'minutes' }} minutes ago)</p>
+                  </div>
+                  <p><a href="#/orders">show more...</a></p>
+               </div>
+               <div>
+                  <div class="customerbox" >
+                     <h5>New Customers</h5>
+                     <p ng-repeat = "customer in customers">{{customer.customer_name}} joined the store. ({{time | amDifference : customer.created_at : 'minutes' }} minutes ago)</p>
+                  </div>
+                  <p><a href="#/customers">show more...</a></p>
+               </div>
+      </div>
+
+</div>
+<!-- </div> -->

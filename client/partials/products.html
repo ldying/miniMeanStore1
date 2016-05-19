@@ -1,0 +1,31 @@
+<h2>WARES AND GOODS</h2>
+<!-- <div class="wrapper"> -->
+   <div class="row">
+      <div class="three columns">
+         <input type="text" ng-model="filter_name" placeholder="filter">
+        {{filter_name}}
+         <h2>Add New Products</h2>
+         <form>
+            <div>
+               <label for="product">Product Name: 
+               <input type="text" ng-model = "newProduct.product_name" id="product"></label>
+               <label for="image">Image (URL):
+               <input type="text" ng-model = "newProduct.image" id="image"></label>
+               <label for="">Description:
+               <input type="text" ng-model = "newProduct.description" id=""></label>
+               <label for="">Quantity:
+               <input type="number" ng-model = "newProduct.quantity" id=""></label>
+            </div>
+            <input type="submit" value="Add Product" ng-click = "addProduct()">
+         </form>
+      </div>
+      <div class="nine columns">
+      			<div class="productbox" ng-repeat = "product in products | filter: filter_name">
+                  <img src="{{product.image}}" alt="{{product.description}}">
+                  <p>{{product.product_name}}</p>
+                  <p>({{product.quantity}} left)</p>
+               </div>
+      				
+      </div>
+</div>
+<!-- </div> -->
