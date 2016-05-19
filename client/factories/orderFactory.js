@@ -20,7 +20,7 @@ myApp.factory('orderFactory', function($http){
 		// console.log(info);
 		// var name_qty = info.product_name 
 		$http.post('/orders', info).then(function(data){
-			// console.log(data)
+			console.log(data)
 			if(data.data.errors){
 				if(data.data.errors.customer_name){
 				alert(data.data.errors.customer_name.message);
@@ -28,7 +28,9 @@ myApp.factory('orderFactory', function($http){
 				alert(data.data.errors.item_name.message);
 				} else if(data.data.errors.quantity){
 				alert(data.data.errors.quantity.message);
-				} 
+				} else if(data.data.message){
+					alert(data.data.message);
+				}
 			} else {
 			orders.push(data.data)
 			callback(orders);

@@ -33,7 +33,7 @@ module.exports = (function() {
 			var old_quantity = parseInt(name_qty[1]);
 			var new_quantity = old_quantity - req.body.quantity;
 			if (req.body.quantity > old_quantity) {
-				res.json({message:"Not enough product in stock", error:"quantity error"})
+				res.json({message:"Quantity error. Not enough product in stock.", errors:"quantity error"})
 			}else{
 				var newOrder = new orderdb(req.body);
 				// var orderQuantity = req.body.quantity;
